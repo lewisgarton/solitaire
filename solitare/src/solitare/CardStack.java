@@ -3,12 +3,16 @@ package solitare;
 import java.util.ArrayList;
 
 public abstract class CardStack {
-	private ArrayList<Card> cards;
+	protected ArrayList<Card> cards;
 	
-	public abstract boolean pushCard(Card card);
+	public abstract boolean pushCheck(Card card);
+	
+	public void pushCard(Card card) {
+		cards.add(card);
+	}
 	
 	public Card popCard() {
-		return cards.remove(-1);
+		return cards.remove(cards.size()-1);
 	}
 	
 	public int size() {

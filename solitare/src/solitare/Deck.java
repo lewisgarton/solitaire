@@ -4,16 +4,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-	private ArrayList<Card> cards;
-	private String[] suits = {"clubs", "spades", "hearts", "diamonds" }; 
-	private String[] values = {"a", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"};
+	private ArrayList<Card> cards = new ArrayList<Card>();
+	private String[] suits = {Card.SPADES, Card.CLUBS, Card.DIAMONDS, Card.HEARTS};
 	
 	public Deck() {
 		for (String suit : suits) {
-			for (String value : values) {
-				cards.add(new Card(suit, value));
+			for (int i = 1; i < 14; i++) {
+				cards.add(new Card(suit, i));
 			}
 		}
+	}
+	
+	public int size() {
+		return cards.size();
 	}
 	
 	public void shuffle() {
@@ -21,7 +24,7 @@ public class Deck {
 	}
 	
 	public Card drawCard() {
-		return cards.remove(-1);
+		return cards.remove(cards.size()-1);
 	}
 	
 	public void returnCard(Card card) {

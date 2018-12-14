@@ -4,9 +4,8 @@ public class HomoStack extends CardStack{
 	private String suit;
 	
 	@Override
-	public boolean pushCard(Card card) {
+	public void pushCard(Card card) {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
 	public String getSuit() {
@@ -15,6 +14,12 @@ public class HomoStack extends CardStack{
 
 	public void setSuit(String suit) {
 		this.suit = suit;
+	}
+
+	@Override
+	public boolean pushCheck(Card card) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
